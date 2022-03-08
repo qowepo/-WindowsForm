@@ -40,16 +40,9 @@ namespace test
 	private: System::Windows::Forms::Button^ but3;
 	protected:
 
-
-
-
-
 	private: System::Windows::Forms::Button^ but2;
 	private: System::Windows::Forms::Button^ but6;
-
-
 	private: System::Windows::Forms::Button^ but5;
-
 	private: System::Windows::Forms::Button^ but4;
 	private: System::Windows::Forms::Button^ but7;
 	private: System::Windows::Forms::Button^ but8;
@@ -57,22 +50,13 @@ namespace test
 	private: System::Windows::Forms::Button^ but0;
 	private: System::Windows::Forms::Button^ but11;
 	private: System::Windows::Forms::Button^ but13;
-
-
-
-
-
 	private: System::Windows::Forms::Button^ but12;
-
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ but14;
 	private: System::Windows::Forms::Button^ but15;
 	private: System::Windows::Forms::Button^ but16;
 	private: System::Windows::Forms::Button^ but17;
-
-
-
 
 	protected:
 
@@ -89,6 +73,7 @@ namespace test
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->but1 = (gcnew System::Windows::Forms::Button());
 			this->but3 = (gcnew System::Windows::Forms::Button());
 			this->but2 = (gcnew System::Windows::Forms::Button());
@@ -371,6 +356,10 @@ namespace test
 			this->Controls->Add(this->but2);
 			this->Controls->Add(this->but3);
 			this->Controls->Add(this->but1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(225, 313);
+			this->MinimumSize = System::Drawing::Size(225, 313);
 			this->Name = L"MyForm";
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Hide;
 			this->Text = L"Calculator";
@@ -380,326 +369,47 @@ namespace test
 
 		}
 #pragma endregion
-		double m_numberOne = 0, m_numberTwo = 0, result = 0;
-		int m_operator = 0;
+		
 
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))  
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "1");
-}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e);
 
-
-
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))            
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "3");
-}
-
-
-
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "6");
-}
-
-
-
-private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "7");
-}
-
-
-
-private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if (textBox1->Text->Length != 0 && m_numberOne != 0 && m_operator !=0)
-	{
-		m_numberTwo = System::Convert::ToDouble(textBox1->Text);
-		 
-		if (m_operator == 1)result = m_numberOne + m_numberTwo;
-		if (m_operator == 2)result = m_numberOne - m_numberTwo;
-		if (m_operator == 3)result = m_numberOne * m_numberTwo;
-		if (m_operator == 4)result = m_numberOne / m_numberTwo;
-
-		textBox1->Text = System::Convert::ToString(result);
-		m_numberOne = 0;
-		m_numberTwo = 0;
-		result = 0;
-	}
-	else
-	{
-		textBox1->Text = nullptr;
-		m_numberOne = 0;
-		m_numberTwo = 0;
-		result = 0;
-		m_operator = 0;
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-	}
-}
-
-
+private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {}
 
-
-
 private: System::Void textBox1_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {}
 
+private: System::Void but2_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void but4_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void but2_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-	textBox1->Text = System::Convert::ToString(textBox1->Text);
+private: System::Void but5_Click(System::Object^ sender, System::EventArgs^ e);
 
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "2");
-}
+private: System::Void but8_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void but9_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void but0_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void but4_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
+private: System::Void but11_Click(System::Object^ sender, System::EventArgs^ e);
 
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "4");
-}
+private: System::Void but17_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void but16_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void but15_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void but5_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
+private: System::Void but14_Click(System::Object^ sender, System::EventArgs^ e);
 
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "5");
-}
+private: System::Void but13_Click(System::Object^ sender, System::EventArgs^ e);
 
-
-
-private: System::Void but8_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "8");
-}
-
-
-
-private: System::Void but9_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                     || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "9");
-}
-
-
-
-private: System::Void but0_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	 
-	if ((textBox1->Text->Length) >= 7 || (textBox1->Text->Length == 1 && textBox1->Text[0] == '0')
-		                    || (textBox1->Text->Length == 2 && textBox1->Text[0] == '-' && textBox1->Text[1] == '0'))
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-
-	else textBox1->Text = System::Convert::ToString(textBox1->Text + "0");
-}
-
-
-
-private: System::Void but11_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	bool m_flag = false;
-	for (int i = 0; i<(textBox1->Text->Length); i++)
-	{
-		if (textBox1->Text[i] == ',')
-			m_flag = true;
-	}
-			
-	if ((textBox1->Text->Length > 0 && textBox1->Text->Length < 6 &&  m_flag == false))
-	{
-		if (textBox1->Text->Length == 1 && textBox1->Text[0] == '-')
-			textBox1->Text = System::Convert::ToString(textBox1->Text);
-			
-		else textBox1->Text = System::Convert::ToString(textBox1->Text + ",");
-	}
-	else textBox1->Text = System::Convert::ToString(textBox1->Text);
-}
-
-
-
-private: System::Void but17_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	textBox1->Text = nullptr;
-	m_numberOne = 0;
-	m_numberTwo = 0;
-	textBox1->Text = System::Convert::ToString(textBox1->Text);
-}
-
-	private: System::Void but16_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		if (textBox1->Text->Length != 0)
-		{
-			if (m_numberOne == 0)
-			{
-				m_numberOne = System::Convert::ToDouble(textBox1->Text);
-				m_operator = 1;
-				textBox1->Text = nullptr;
-				textBox1->Text = System::Convert::ToString(textBox1->Text);
-			}
-			else
-			{
-				m_numberTwo = System::Convert::ToDouble(textBox1->Text);
-				result = m_numberTwo + m_numberOne;
-				textBox1->Text = System::Convert::ToString(result);
-				m_numberOne = 0;
-				m_numberTwo = 0;
-			}
-
-		}
-		else
-		{
-			textBox1->Text = nullptr;
-			m_numberOne = 0;
-			m_numberTwo = 0;
-			m_operator = 0;
-			textBox1->Text = System::Convert::ToString(textBox1->Text);
-		}
-	}
-
-
-
-private: System::Void but15_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if (textBox1->Text->Length == 0)
-		textBox1->Text = System::Convert::ToString(textBox1->Text + "-");
-	else
-	{
-		if (textBox1->Text->Length != 0)
-		{
-			if (m_numberOne == 0)
-			{
-				m_numberOne = System::Convert::ToDouble(textBox1->Text);
-				m_operator = 2;
-				textBox1->Text = nullptr;
-				textBox1->Text = System::Convert::ToString(textBox1->Text);
-			}
-			else
-			{
-				m_numberTwo = System::Convert::ToDouble(textBox1->Text);
-				result = m_numberOne - m_numberTwo;
-				textBox1->Text = System::Convert::ToString(result);
-				m_numberOne = 0;
-				m_numberTwo = 0;
-			}
-
-		}
-		else
-		{
-			textBox1->Text = nullptr;
-			m_numberOne = 0;
-			m_numberTwo = 0;
-			m_operator = 0;
-			textBox1->Text = System::Convert::ToString(textBox1->Text);
-		}
-	}
-}
-
-
-
-private: System::Void but14_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if (textBox1->Text->Length != 0)
-	{
-		if (m_numberOne == 0)
-		{
-			m_numberOne = System::Convert::ToDouble(textBox1->Text);
-			m_operator = 3;
-			textBox1->Text = nullptr;
-			textBox1->Text = System::Convert::ToString(textBox1->Text);
-		}
-		else
-		{
-			m_numberTwo = System::Convert::ToDouble(textBox1->Text);
-			result = m_numberTwo * m_numberOne;
-			textBox1->Text = System::Convert::ToString(result);
-			m_numberOne = 0;
-			m_numberTwo = 0;
-		}
-
-	}
-	else
-	{
-		textBox1->Text = nullptr;
-		m_numberOne = 0;
-		m_numberTwo = 0;
-		m_operator = 0;
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-	}
-}
-
-
-
-private: System::Void but13_Click(System::Object^ sender, System::EventArgs^ e) 
-{
-	if (textBox1->Text->Length != 0)
-	{
-		if (m_numberOne == 0)
-		{
-			m_numberOne = System::Convert::ToDouble(textBox1->Text);
-			m_operator = 4;
-			textBox1->Text = nullptr;
-			textBox1->Text = System::Convert::ToString(textBox1->Text);
-		}
-		else
-		{
-			m_numberTwo = System::Convert::ToDouble(textBox1->Text);
-			result = m_numberOne / m_numberTwo;
-			textBox1->Text = System::Convert::ToString(result);
-			m_numberOne = 0;
-			m_numberTwo = 0;
-			 
-		}
-
-	}
-	else
-	{
-		textBox1->Text = nullptr;
-		m_numberOne = 0;
-		m_numberTwo = 0;
-		m_operator = 0;
-		textBox1->Text = System::Convert::ToString(textBox1->Text);
-	}
-}
-
-
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {}
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {}
 
 };
 }
